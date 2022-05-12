@@ -10,6 +10,9 @@ npm install
 npm run serve
 ```
 
+租车系统学习；vue2 + vuex + webpack +element ui
+
+
 ### Compiles and minifies for production
 ```
 npm run build
