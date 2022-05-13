@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="container">
     <el-amap vid="amapContainer" class="amap-demo"></el-amap>
   </div>
 </template>
@@ -41,7 +41,8 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .home{
+  .container{
+    opacity: 0.6;
     // height: 50vh;
     height: 100vh;
   }

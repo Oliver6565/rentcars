@@ -7,14 +7,19 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'index',
-    component: Index
+    name: 'Index',
+    component: Index,
+    children:[
+      {
+        path:"/user",
+        name:"User",
+        meta:{
+          title:"用户中心"
+        },
+        component:()=>import("../views/user/user.vue")
+      }
+    ]
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
 ]
 
 const router = new VueRouter({
