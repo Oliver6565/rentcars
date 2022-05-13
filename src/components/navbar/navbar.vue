@@ -30,7 +30,7 @@
 <style lang="less" scoped>
 .navbar{ 
     li{
-        margin:0 15px;
+        margin:0 5px;
         display: inline-block;
     }
     .icon{
