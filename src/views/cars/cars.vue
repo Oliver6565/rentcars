@@ -20,7 +20,8 @@ export default {
    components: { CarsItem, Swiper, SwiperSlide },
     data(){
         return{
-            screenWidth: null,
+            // aa:1,
+            // screenWidth: null,
             swiperOption: {
                 slidesPerView: 5,
                 spaceBetween: 10,
@@ -41,53 +42,51 @@ export default {
     watch: {
         screenWidth: {
         handler: function (val) {
-            //     if (val < 900) {
-            //         this.swiperOption.slidesPerView=2
-            //     console.log(val+'屏幕宽度小于900px')
-            //     } else {
-            //         this.swiperOption.slidesPerView=1
-            //     console.log(val+'屏幕宽度大于900px')
-            //     }
-            // console.log(this.swiperOption.slidesPerView)
-            console.log("判断 "+val)
-            if(val>=1800){
-                this.swiperOption.slidesPerView = 5
-                console.log(this.swiperOption.slidesPerView)
-                console.log("1800-",val)
-                return
-            }
-            if(1600<= val && val< 1800) {
-                this.swiperOption.slidesPerView = 4 
-                console.log(this.swiperOption.slidesPerView)
-                console.log("1600-1800",val)
-                return
-            }
-            if(1200<=val && val<1600) {
-                this.swiperOption.slidesPerView = 3
-                console.log("1200-1600",val)
-                return
-            }else{
-                console.log('1')
-            }
-            console.log(this.swiperOption.slidesPerView)
+            // console.log("判断 "+val)
+            // if(val>=1800){
+            //     this.$data.swiperOption.slidesPerView = 5
+            //     console.log("1800-",val)
+            // }
+            // if(1600<= val && val< 1800) {
+            //     this.$data.swiperOption.slidesPerView = 4 
+            //     console.log("1600-1800",val)
+            // }
+            // if(1200<=val && val<1600) {
+            //     this.$data.swiperOption.slidesPerView = 3
+            //     console.log("1200-1600",val)
+            // }
+            // if(600<=val && val<1200){
+            //     this.$data.swiperOption.slidesPerView = 2
+            //     console.log("1200-1600",val)
+            // }
+            // if(val<600){
+            //     this.$data.swiperOption.slidesPerView = 1
+            //     console.log("1200-1600",val)
+            // }
+            // console.log(this.$data.swiperOption.slidesPerView)
+
+            // this.aa = this.aa+1
+            // console.log(this.aa)
         },
         immediate: true,
-        deep:true
+        deep:true,
         },
     },
     mounted(){
-        this.screenWidth = document.body.clientWidth
-        window.onresize = () => {
-            return (() => {
-                this.screenWidth = document.body.clientWidth
-            })()
-        }
+        // this.screenWidth = document.body.clientWidth
+        // window.onresize = () => {
+        //     return (() => {
+        //         this.screenWidth = document.body.clientWidth
+        //     })()
+        // }
     }
 }
 </script>
 
 <style lang="less" scoped>
 .container{
-
+    .swiper-container{
+        overflow: initial;
+    }
 }
 </style>
