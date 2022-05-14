@@ -38,6 +38,7 @@
                 参保《全面保障服务》用车更放心
             </div>
             <div class="select_car_btn">预约用车</div>
+            <button class="close_button" @click="close">关闭</button>
             
             
         </div> 
@@ -73,6 +74,9 @@ export default {
             } else {
             return '#67c23a';
             }
+        },
+        close(){
+            this.$emit('close','true')
         }
     },
     watch:{
@@ -216,6 +220,18 @@ header{
         font-weight: 300;
         // background-color: @color_main;
         background-color: #34393f;
+    }
+    .close_button{
+        position: relative;
+        bottom: 10px;
+        border: 0;
+        padding: 5px 10px;
+        border-radius:10px ;
+        outline: none;
+        cursor: pointer;
+    }
+    .close_button:hover{
+        color: #34393f;
     }
 
 }

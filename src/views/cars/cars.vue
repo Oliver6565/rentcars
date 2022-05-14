@@ -2,7 +2,7 @@
     <div class="container">
             <swiper class="swiper" :options="swiperOption">
                 <swiper-slide v-for="(item,index) in carsList" :key="index">
-                    <div @click="carDetail(index)"><CarsItem :data="item" :height="carsHeight[index]" :class="addClass[index]"/></div>
+                    <div @click="carDetail(index)"><CarsItem @close="detailclose" :data="item" :height="carsHeight[index]" :class="addClass[index]"/></div>
                 </swiper-slide>
             </swiper>
             <div class="swiper-button-prev" slot="button-prev"></div>
@@ -52,47 +52,29 @@ export default {
                 }
                 return item
             })
+        },
+        
+        detailclose(val){
+            this.initcarsHeight()
+            this.carsHeight = [...this.carsHeight]
+            console.log('这里为什么关不掉，我都已经重新')
+        },
+
+        initcarsHeight(){
+            this.carsList.map((item,index)=>{
+                this.carsHeight[index]='160px'
+                return this.carsHeight 
+            })
         }
     },
     computed:{
     },
 
     watch: {
-        // screenWidth: {
-        // handler: function (val) {
-        //     console.log("判断 "+val)
-        //     if(val>=1800){
-        //         this.swiperOption.slidesPerView = 5
-        //         console.log("1800-",val)
-        //     }
-        //     if(1600<= val && val< 1800) {
-        //         this.swiperOption.slidesPerView = 4 
-        //         console.log("1600-1800",val)
-        //     }
-        //     if(1200<=val && val<1600) {
-        //         this.swiperOption.slidesPerView = 3
-        //         console.log("1200-1600",val)
-        //     }
-        //     if(600<=val && val<1200){
-        //         this.swiperOption.slidesPerView = 2
-        //         console.log("600-1200",val)
-        //     }
-        //     if(val<600){
-        //         this.swiperOption.slidesPerView = 1
-        //         console.log("-1600",val)
-        //     }
-        //     console.log(this.swiperOption.slidesPerView)
-        //     this.swiperOption={...this.swiperOption}
-        // },
-        // immediate: true,
-        // deep:true,
-        // },
+
     },
     mounted(){
-        this.carsList.map(()=>{
-            this.carsHeight.push('160px')
-            return this.carsHeight 
-            })  // 这里成功了的可以渲染
+        this.initcarsHeight()
   
         // this.screenWidth = document.body.clientWidth
 

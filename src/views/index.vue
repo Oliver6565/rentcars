@@ -7,7 +7,7 @@
     <!-- 底下导航 -->
     <div class="navbar_container"><Navbar></Navbar></div>
     <!-- 会员视图 -->
-    <div class="user_container"  :class="{open: show}">
+    <div id="user_container"  :class="{open: show}">
       <div>ID: xxxxx</div>
       <router-view />
     </div>
@@ -37,6 +37,17 @@ export default {
           const router = this.$route;  
           return router.name === "Index" ? false : true;
       },
+    },
+    mounted(){
+      // 给整个页面一个监听事件
+      document.addEventListener('mouseup',(e)=>{
+        const userCon = document.getElementById('user_container');
+        if(userCon && !userCon.contains(e.target)){
+          this.$router.push({
+            name:'Index'
+          })
+        }
+      })
     }
 }
 </script>
@@ -51,7 +62,7 @@ export default {
     right: 0;
     z-index: 100; 
   }
-  .user_container{
+  #user_container{
     position: fixed;
     top: 0;
     bottom: 0;
