@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="cars_item">
+    <section class="cars_item" :style="{height: height}">
         <header>
             <h4 class="cars_logo">
                 <img src="../../assets/images/cars-logo.png" alt="Mustang 2019款">
@@ -21,20 +21,44 @@
                 </div>
             </div>
             <div><img src="../../assets/images/pic001.jpg" alt=""></div>
-        </div>
+        </div>  
         <footer>
             <a href="javascript: void(0);" class="parking-link">某某停车场</a>
         </footer>
-    </div>
+        <div class="detail">
+            <div class="tip">取车约支付12.0元停车费，实际补贴12.0元</div>
+            <div class="select_box">
+                <div class="select_item">日租车 <span>￥300/1天</span></div>
+                <div class="select_item">3日租车 <span>￥499.00/3天</span></div>
+                <div class="select_item">5日租车 <span>￥799.00/5天</span></div>
+                <div class="select_item">小时租车 <span>￥99/1小时</span></div>
+            </div>
+            <div class="notice">
+                <div class="checkbox"><input type="checkbox"/></div>
+                参保《全面保障服务》用车更放心
+            </div>
+            <div class="select_car_btn">预约用车</div>
+            
+            
+        </div> 
+    </section>
+    
 </div>
 </template>
 
 <script>
 export default {
     name:'CarsList',
+    props:{
+        height:{
+            type:String,
+            default:"160px"
+        }
+    },
     data(){
         return{
             activeli:4,
+            
         }
     },
     methods:{
@@ -49,10 +73,11 @@ export default {
             } else {
             return '#67c23a';
             }
+        }
     },
+    watch:{
     },
     mounted(){
-
     }
 }
 </script>
@@ -62,6 +87,7 @@ export default {
     margin-left: 20px;
 }
 .cars_item{
+    overflow: hidden;
     padding: 20px;
     height: 160px;
     width: 300px;
@@ -144,5 +170,53 @@ header{
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+}
+
+.detail{
+    margin-top: 15px;
+    .tip{
+        font-size: 12px;
+        text-align: center;
+        color: #808080;
+        margin: 10px 0;
+    }
+    .select_box{
+        display: flex;
+        flex-direction: column;
+        .select_item{
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fdfbf7;
+            border-radius: 5px;
+
+            span{
+                float: right;
+            }
+        }
+    }
+    .notice{      
+        line-height: 24px;
+        .checkbox{
+            float: right;
+            vertical-align: middle;
+        }
+    }
+
+    .select_car_btn{
+        margin: 0 auto;
+        position: relative;
+        bottom: -20px;
+        width: 120px;  
+        height: 40px;
+        border-radius:100px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 300;
+        // background-color: @color_main;
+        background-color: #34393f;
+    }
+
 }
 </style>
