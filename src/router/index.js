@@ -18,7 +18,41 @@ const routes = [
           title:"用户中心"
         },
         component:()=>import("../views/user/user.vue")
-      }
+      },
+      {
+        path:'/safe',
+        name:'Safe',
+        meta:{
+          title:"安全设置"
+        },
+        component:()=>import("../views/safe/safe.vue")
+      },
+      {
+        path:'/password',
+        name:'Password',
+        meta:{
+          title:"重置密码"
+        },
+        component:()=>import("../views/safe/password.vue")
+      },
+      // 绑定银行卡
+      {
+        path: "/bank",
+        name: "Bank",
+        meta: {
+          title: "绑定银行卡"
+        },
+        component: () => import("../views/safe/bank")
+      },
+      // 绑定银行卡
+      {
+        path: "/bankAdd",
+        name: "BankAdd",
+        meta: {
+          title: "添加银行卡"
+        },
+        component: () => import("../views/safe/bankAdd")
+      },
     ]
   },
 ]

@@ -8,7 +8,6 @@
     <div class="navbar_container"><Navbar></Navbar></div>
     <!-- 会员视图 -->
     <div id="user_container"  :class="{open: show}">
-      <div>ID: xxxxx</div>
       <router-view />
     </div>
 

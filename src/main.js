@@ -8,6 +8,12 @@ import './assets/main.less'
 // 高德地图
 import "./plugins/amap.js"
 
+// 全局组件
+import Back from "./components/back/back.vue"
+
+Vue.component('Back',Back)
+
+
 Vue.config.productionTip = false
 
 new Vue({
